@@ -16,6 +16,10 @@ output:
         keep_tex: true
 ---
 
+```{r echo=FALSE}
+library(kableExtra)
+```
+
 # Typography
 
 All text in JDF should be set in the Palatino typeface. It is available practically everywhere as a system font: Microsoft ships a version called *Palatino Linotype*, and Apple uses a version simply called *Palatino*. Those without either can look for *Book Antiqua* in their fonts list or download [\TeX\ Gyre Pagella](https://www.ctan.org/tex-archive/fonts/tex-gyre/opentype) from CTAN. They all come in regular and bold weights with matching italics.
@@ -80,12 +84,35 @@ You have freedom to format tables in the way that works best for your data. Gene
 
 Table captions should be formatted the same way as figure captions, but they should be placed above the table. The popular mnemonic for this is: figures at the foot, tables at the top. Like figures, tables should not exceed the margins and should be centered on the page.
 
-| **Name**             | **Symbol** | **Approx**        | **Description**                                                                            |
-|----------------------|:----------:|------------------:|--------------------------------------------------------------------------------------------|
-| Golden ratio         | $\phi$          | 1\.618            | Number such that the ratio of $\phi$ to the number is equal to the ratio of its reciprocal to 1 |
-| Euler’s number       | $e$        | 2\.71828          | Exponential growth constant                                                                |
-| Archimedes’ constant | $\pi$          | 3\.14             | The ratio between the circumference and diameter of a circle                               |
-| One hundred          | A\+        | 100\.0            | The grade we hope you’ll all earn in this class                                            |
+```{r echo=FALSE}
+df <- data.frame(
+  Title = c("A book title", "Another book title", "And yet another title"),
+  Description = c(
+    "This is the first book. It's a great book with lots of interesting content. Definitely worth a read.",
+    "This is the second book. It's not as great as the first one, but still worth checking out. It has some cool concepts.",
+    "This is the third book. It's different from the first two, but that's not necessarily a bad thing. It has its own unique charm."
+  ),
+  Rating = c(4.5, 3.7, 4.0),
+  stringsAsFactors = FALSE
+)
+kbl(df, booktabs = T, caption="Demo table") %>%
+  kable_styling(position = "center") %>%
+  row_spec(0, bold=T) %>%
+  column_spec(2, width = "20em")
+```
+
+<!-- | **Name** | **Symbol** | **Approx** | **Description** | -->
+<!-- |---|:----------:|------------:|---------| -->
+<!-- | test | test | test | test | -->
+<!-- | Golden ratio | $\phi$  | 1\.618  | Number such that the ratio of test | -->
+<!-- | Golden ratio         | test          | test          | Number such that the ratio of test to the number is equal to the ratio of its reciprocal to  | -->
+
+<!-- | **Name** | **Symbol** | **Approx** | **Description** | -->
+<!-- |---|:----------:|------------:|---------| -->
+<!-- | Golden ratio         | $\phi$          | 1\.618            | Number such that the ratio of $\phi$ to the number is equal to the ratio of its reciprocal to 1 | -->
+<!-- | Euler’s number       | $e$        | 2\.71828          | Exponential growth constant                                                                | -->
+<!-- | Archimedes’ constant | $\pi$          | 3\.14             | The ratio between the circumference and diameter of a circle                               | -->
+<!-- | One hundred          | A\+        | 100\.0            | The grade we hope you’ll all earn in this class                                            | -->
 
 ## Additional elements
 
